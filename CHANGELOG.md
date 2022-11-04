@@ -1,3 +1,191 @@
+<a name="5.2.1"></a>
+## 5.2.1 (2022-09-06)
+
+#### Fixed
+
+- **quiz1**: Reworded the comment to actually reflect what's going on in the tests.
+  Also added another assert just to make sure.
+- **rc1**: Fixed a typo in the hint.
+- **lifetimes**: Add quotes to the `println!` output, for readability.
+
+#### Housekeeping
+
+- Fixed a typo in README.md
+
+<a name="5.2.0"></a>
+## 5.2.0 (2022-08-27)
+
+#### Added
+
+- Added a `reset` command
+
+#### Changed
+
+- **options2**: Convert the exercise to use tests
+
+#### Fixed
+
+- **threads3**: Fixed a typo
+- **quiz1**: Adjusted the explanations to be consistent with
+  the tests
+
+<a name="5.1.1"></a>
+## 5.1.1 (2022-08-17)
+
+#### Bug Fixes
+
+- Fixed an incorrect assertion in options1
+
+<a name="5.1.0"></a>
+## 5.1.0 (2022-08-16)
+
+#### Features
+
+- Added a new `rc1` exercise.
+- Added a new `cow1` exercise.
+
+#### Bug Fixes
+
+- **variables5**: Corrected reference to previous exercise
+- **functions4**: Fixed line number reference
+- **strings3**: Clarified comment wording
+- **traits4, traits5**: Fixed line number reference
+- **traits5**:
+  - Fixed typo in "parameter"
+  - Made exercise prefer a traits-based solution
+- **lifetimes2**: Improved hint
+- **threads3**: Fixed typo in hint
+- **box1**: Replaced `unimplemented!` with `todo!`
+- **errors5**: Provided an explanation for usage of `Box<dyn Error>`
+- **quiz2**: Fixed a typo
+- **macros**: Updated the macros book link
+- **options1**:
+  - Removed unused code
+  - Added more granular tests
+- Fixed some comment syntax shenanigans in info.toml
+
+#### Housekeeping
+
+- Fixed a typo in .editorconfig
+- Fixed a typo in integration_tests.rs
+- Clarified manual installation instructions using `cargo install --path .`
+- Added a link to our Zulip in the readme file
+
+<a name="5.0.0"></a>
+## 5.0.0 (2022-07-16)
+
+#### Features
+
+- Hint comments in exercises now also include a reference to the
+  `hint` watch mode subcommand.
+- **intro1**: Added more hints to point the user to the source file.
+- **variables**: Switched variables3 and variables4.
+- Moved `vec` and `primitive_types` exercises before `move_semantics`.
+- Renamed `vec` to `vecs` to be more in line with the naming in general.
+- Split up the `collections` exercises in their own folders.
+- **vec2**: Added a second part of the function that provides an alternative,
+  immutable way of modifying vec values.
+- **enums3**: Added a hint.
+- Moved `strings` before `modules`.
+- Added a `strings3` exercise to teach modifying strings.
+- Added a `hashmaps3` exercise for some advanced usage of hashmaps.
+- Moved the original `quiz2` to be `strings4`, since it only tested strings
+  anyways.
+- Reworked `quiz2` into a new exercise that tests more chapters.
+- Renamed `option` to `options`.
+- **options1**: Rewrote parts of the exercise to remove the weird array
+  iteration stuff.
+- Moved `generics3` to be `quiz3`.
+- Moved box/arc exercises behind `iterators`.
+- **iterators4**: Added a test for factorials of zero.
+- Split `threads1` between two exercises, the first one focusing more on
+  `JoinHandle`s.
+- Added a `threads3` exercises that uses `std::sync::mpsc`.
+- Added a `clippy3` exercises with some more interesting checks.
+- **as_ref_mut**: Added a section that actually tests `AsMut`.
+- Added 3 new lifetimes exercises.
+- Added 3 new traits exercises.
+
+#### Bug Fixes
+
+- **variables2**: Made output messages more verbose.
+- **variables5**: Added a nudging hint about shadowing.
+- **variables6**: Fixed link to book.
+- **functions**: Clarified the README wording. Generally cleaned up
+  some hints and added some extra comments.
+- **if2**: Renamed function name to `foo_if_fizz`.
+- **move_semantics**: Clarified some hints.
+- **quiz1**: Renamed the function name to be more verbose.
+- **structs1**: Use an integer type instead of strings. Renamed "unit structs"
+  to "unit-like structs", as is used in the book.
+- **structs3**: Added the `panic!` statement in from the beginning.
+- **errors1**: Use `is_empty()` instead of `len() > 0`
+- **errors3**: Improved the hint.
+- **errors5**: Improved exercise instructions and the hint.
+- **errors6**: Provided the skeleton of one of the functions that's supposed
+  to be implemented.
+- **iterators3**: Inserted `todo!` into `divide()` to keep a compiler error
+  from happening.
+- **from_str**: Added a hint comment about string error message conversion with
+  `Box<dyn Error>`.
+- **try_from_into**: Fixed the function name in comment.
+  
+#### Removed
+
+- Removed the legacy LSP feature that was using `mod.rs` files.
+- Removed `quiz4`.
+- Removed `advanced_errs`. These were the last exercises in the recommended
+  order, and I've always felt like they didn't quite fit in with the mostly
+  simple, book-following style we've had in Rustlings.
+
+#### Housekeeping
+
+- Added missing exercises to the book index.
+- Updated spacing in Cargo.toml.
+- Added a GitHub actions config so that tests run on every PR/commit.
+
+<a name="4.8.0"></a>
+## 4.8.0 (2022-07-01)
+
+#### Features
+
+- Added a progress indicator for `rustlings watch`.
+- The installation script now checks for Rustup being installed.
+- Added a `rustlings lsp` command to enable `rust-analyzer`.
+
+#### Bug Fixes
+
+- **move_semantics5**: Replaced "in vogue" with "in scope" in hint.
+- **if2**: Fixed a typo in the hint.
+- **variables1**: Fixed an incorrect line reference in the hint.
+- Fixed an out of bounds check in the installation Bash script.
+
+#### Housekeeping
+
+- Replaced the git.io URL with the fully qualified URL because of git.io's sunsetting.
+- Removed the deprecated Rust GitPod extension.
+
+<a name="4.7.1"></a>
+## 4.7.1 (2022-04-20)
+
+#### Features
+
+- The amount of dependency crates that need to be compiled went down from ~65 to
+  ~45 by bumping dependency versions.
+- The minimum Rust version in the install scripts has been bumped to 1.56.0 (this isn't in
+  the release itself, since install scripts don't really get versioned)
+
+#### Bug Fixes
+
+- **arc1**: A small part has been rewritten using a more functional code style (#968).
+- **using_as**: A small part has been refactored to use `sum` instead of `fold`, resulting
+  in better readability.
+
+#### Housekeeping
+
+- The changelog will now be manually written instead of being automatically generated by the
+  Git log.
+
 <a name="4.7.0"></a>
 ## 4.7.0 (2022-04-14)
 
@@ -264,7 +452,7 @@
 #### Features
 
 *   add Option2 exercise (#290) ([86b5c08b](https://github.com/rust-lang/rustlings/commit/86b5c08b9bea1576127a7c5f599f5752072c087d))
-*   add excercise for option (#282) ([135e5d47](https://github.com/rust-lang/rustlings/commit/135e5d47a7c395aece6f6022117fb20c82f2d3d4))
+*   add exercise for option (#282) ([135e5d47](https://github.com/rust-lang/rustlings/commit/135e5d47a7c395aece6f6022117fb20c82f2d3d4))
 *   add new exercises for generics (#280) ([76be5e4e](https://github.com/rust-lang/rustlings/commit/76be5e4e991160f5fd9093f03ee2ba260e8f7229))
 * **ci:**  add buildkite config ([b049fa2c](https://github.com/rust-lang/rustlings/commit/b049fa2c84dba0f0c8906ac44e28fd45fba51a71))
 
